@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
+    'tinymce',
     'rest_framework',
     'rest_framework_swagger',
     'rest_framework_simplejwt',
@@ -52,6 +53,9 @@ INSTALLED_APPS = [
     'drf_spectacular_sidecar',
     'django_celery_beat',
     'corsheaders',
+
+    'content.apps.ContentConfig',
+    'bot.apps.BotConfig',
 ]
 
 MIDDLEWARE = [
@@ -101,7 +105,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*127.0.0.1',
 ]
 
-
+TG_BOT_TOKEN=env('TG_BOT_TOKEN')
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

@@ -109,6 +109,20 @@ services:
     depends_on:
       - db
 
+  bot:
+    image: tg_bot:1.0
+    build:
+      context: .
+      dockerfile: Botfile
+    volumes:
+      - .:/app
+    networks:
+      - djangonetwork
+    env_file:
+      - .env
+    depends_on:
+      - core
+
 networks:
     djangonetwork:
       driver: bridge

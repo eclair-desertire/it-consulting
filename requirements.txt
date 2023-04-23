@@ -8,11 +8,13 @@ drf-spectacular-sidecar
 django-rest-swagger
 django-cors-headers
 django-celery-beat
+django-tinymce
 celery
 redis
 flower
 Pillow
 poetry
 psycopg2-binary
+pytelegrambotapi
 django-environ
 environ
