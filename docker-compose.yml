@@ -1,0 +1,114 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:13.4-alpine
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+    networks:
+      - djangonetwork
+
+  redis:
+    image: redis:6.2.6
+    hostname: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - djangonetwork
+  celery-main:
+    image: consulting:1.0
+    restart: always
+    user: root
+    command: sh -c "celery -A consulting_core worker -l info -n main"
+    volumes:
+      - ./:/app
+    environment:
+      CELERY_BROKER_URL: 'redis://redis:6379/1'
+      
+    networks:
+      - djangonetwork
+    links:
+      - db:db
+    depends_on:
+      - redis
+      - db
+  celery-index:
+    image: consulting:1.0
+    restart: always
+    user: root
+    command: sh -c "celery -A consulting_core worker -l info -n index -Q index_tasks"
+    volumes:
+      - ./:/app
+    environment:
+      CELERY_BROKER_URL: 'redis://redis:6379/1'
+    networks:
+      - djangonetwork
+    links:
+      - db:db
+    depends_on:
+      - redis
+      - db
+  celery-beat:
+    image: consulting:1.0
+    restart: always
+    command: sh -c "celery -A consulting_core beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler"
+    volumes:
+      - ./:/app
+    environment:
+      CELERY_BROKER_URL: 'redis://redis:6379/1'
+    networks:
+      - djangonetwork
+    links:
+      - db:db
+    depends_on:
+      - celery-main
+      - celery-index
+      - redis
+      - db
+  celery-flower:
+    image: consulting:1.0
+    restart: always
+    command: sh -c "celery -A consulting_core flower"
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./:/app
+    environment:
+      CELERY_BROKER_URL: 'redis://redis:6379/1'
+    networks:
+      - djangonetwork
+    links:
+      - db:db
+    depends_on:
+      - celery-main
+      - celery-index
+      - redis
+      - db
+
+  core:
+    image: consulting:1.0
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    networks:
+      - djangonetwork
+    links:
+      - db:db
+    depends_on:
+      - db
+
+networks:
+    djangonetwork:
+      driver: bridge
