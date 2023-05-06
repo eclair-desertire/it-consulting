@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-20.04
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.8]
+
+    steps:
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.LIVE_SERVER_IP }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        script: |
+          cd ${{ secrets.PROJECT_PATH }}
+          sudo docker-compose down --remove-orphans
+          git pull
+          sudo docker-compose build
+          sudo docker-compose up -d
