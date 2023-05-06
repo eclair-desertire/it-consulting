@@ -25,7 +25,7 @@ def start_func(message):
     button_4 = types.KeyboardButton(text='Контакты')
     button_5 =  types.KeyboardButton(text='Оставить заявку')
     keyboard.add(button_1,button_2,button_3,button_4,button_5)
-    bot.send_message(message.chat.id, "Приветствуем вас!\nМы IT-консалтинговая фирма, предоставлем услуги различного спектра в IT пространстве!",reply_markup=keyboard)
+    bot.send_message(message.chat.id, "Приветствуем вас!\nМы IT-консалтинговая кампания Project Infinity, предоставлем услуги различного спектра в IT пространстве!",reply_markup=keyboard)
 
 
 
