@@ -27,7 +27,16 @@ class Portfolio(models.Model):
     def __str__(self) -> str:
         return self.title
 
+class OurClients(models.Model):
+    title=models.CharField(verbose_name='Название компании', max_length=255)
+    logo=models.ImageField(verbose_name='Логотип компании')
+    
+    class Meta:
+        verbose_name='Наш клиент'
+        verbose_name_plural='Наши клиенты'
 
+    def __str__(self) -> str:
+        return self.title
 
 class Contacts(models.Model):
     whatsapp=models.URLField(verbose_name='Ссылка на WhatsApp',null=True,blank=True)
