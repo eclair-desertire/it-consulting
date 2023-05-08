@@ -5,6 +5,7 @@ class Request(models.Model):
     name=models.CharField(verbose_name="Имя",default='',max_length=255,null=True,blank=True)
     email=models.EmailField(verbose_name='Почта',null=True,blank=True)
     phone=models.CharField(verbose_name='Номер телефона',default='',null=True,blank=True,max_length=255)
+    title=models.CharField(verbose_name='Заголовок',default='',max_length=255)
     about=models.TextField(verbose_name='Описание',null=True,blank=True)
 
     class Meta:
@@ -12,6 +13,6 @@ class Request(models.Model):
         verbose_name_plural='Заявки'
         
     def __str__(self) -> str:
-        return f"Заявка №: {self.pk}"
+        return f"Заявка №: {self.pk} | {self.title}"
 
 # Create your models here.

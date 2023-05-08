@@ -17,6 +17,7 @@ class Service(models.Model):
 
 class Portfolio(models.Model):
     title=models.CharField(verbose_name='Название проекта',max_length=255)
+    project_type=models.CharField(verbose_name='Тип проекта',max_length=255,default='')
     info=models.TextField(verbose_name='Информация о проекте',null=True,blank=True)
     image=models.ImageField(verbose_name='Изображение проекта')
 
@@ -37,6 +38,31 @@ class OurClients(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+class MainPageDigits(models.Model):
+    clients=models.IntegerField(verbose_name='Обслужено клиентов',default=0)
+    projects=models.IntegerField(verbose_name='Реализовано проектов',default=0)
+    hours_of_support=models.IntegerField(verbose_name='Часов поддержки',default=0)
+    hard_workers=models.IntegerField(verbose_name='Работников',default=0)
+
+    class Meta:
+        verbose_name='Цифры на главной'
+        verbose_name_plural='Цифры на главной'
+
+    def __str__(self) -> str:
+        return "Цифры на главной: "+str(self.pk)
+
+class Testimonal(models.Model):
+    name=models.CharField(verbose_name='Имя',max_length=255,default='')
+    company_models=models.CharField(verbose_name='Наименование компании',max_length=255,default='')
+    testimonal=models.TextField(verbose_name='Отзыв')
+
+    class Meta:
+        verbose_name='Отзыв о нас'
+        verbose_name_plural='Отзывы о нас'
+
+    def __str__(self) -> str:
+        return "Отзыв: "+str(self.pk)
 
 class Contacts(models.Model):
     whatsapp=models.URLField(verbose_name='Ссылка на WhatsApp',null=True,blank=True)
