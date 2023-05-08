@@ -11,6 +11,7 @@ environ.Env.read_env(env_file='./.env')
 
 token=env('TG_BOT_TOKEN')
 my_chat_id=env('TG_MY_CHATID')
+debug=env('DEBUG_BOT')
 
 bot=telebot.TeleBot(token)
 
