@@ -1,10 +1,12 @@
 from django.db import models
 from tinymce import models as tinymce_models
+from django.utils import timezone
 
 class Service(models.Model):
     title=models.CharField(verbose_name="Наименование услуги",max_length=255,default="")
     image=models.ImageField(verbose_name="Изображение услуги")
     description=models.TextField(verbose_name="Описание")
+    publish = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name='Услуга'
@@ -12,13 +14,18 @@ class Service(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+    def get_absolute_url(self):
+        return f'/services/{self.pk}/'
 
 
 
 class Portfolio(models.Model):
     title=models.CharField(verbose_name='Название проекта',max_length=255)
+    client=models.CharField(verbose_name='Клиент',max_length=255,null=True,blank=True,default='')
     project_type=models.CharField(verbose_name='Тип проекта',max_length=255,default='')
     info=models.TextField(verbose_name='Информация о проекте',null=True,blank=True)
+    portfolio_url=models.URLField(verbose_name="Ссылка на проект",blank=True,null=True)
     image=models.ImageField(verbose_name='Изображение проекта')
 
     class Meta:

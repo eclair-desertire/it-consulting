@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Политика конфиденциальности</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Techie
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="{% url 'index' %}">Project Infinity</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'index' %}">Главная</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'all_portfolios' %}">Наши работы</a></li>
+          <li class="dropdown"><a href="{% url 'all_services' %}"><span>Услуги</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                {% for i in services %}
+                <li><a href="{% url 'service_get' pk=i.pk %}">{{i.title}}</a></li>
+                {% endfor %}
+              
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#">Нам доверяют</a></li>
+          <li><a class="nav-link scrollto" href="#">О нас</a></li>
+          <li><a class="nav-link scrollto" href="#">Контакты</a></li>
+
+          <li><a class="getstarted scrollto" href="#">Оставить заявку</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <a href="https://wa.me/77473480461?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B2%D0%B0%D1%88%D1%83%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D1%83%20..." class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+    </a>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>IT-консалтинг</h1>
+          <h1>Мы создаем легкие решения сложных задач и проблем</h1>
+          <div><a href="{% url 'all_services' %}" class="btn-get-started scrollto">Наши Услуги</a></div>
+        </div>
+        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Inner Page</h2>
+            <ol>
+              <li><a href="{% url 'index' %}">Главная</a></li>
+              <li>Политика конфиденциальности</li>
+            </ol>
+          </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+  
+      <section class="inner-page">
+        <div class="container">
+            <h2>Политика конфиденциальности</h2>
+            
+
+            Настоящая Политика конфиденциальности регулирует порядок обработки и использования персональных и иных данных пользователей официального сайта ИП "Project Infinity" (далее – Оператор). Действующая редакция настоящей Политики конфиденциальности размещена в открытом доступе в сети Интернет по адресу: https://project-infinity, и доступна для всеобщего ознакомления.
+            Передавая Оператору персональные и иные данные посредством Сайта, Пользователь подтверждает свое согласие на использование указанных данных на условиях, изложенных в настоящей Политике конфиденциальности.
+            Если Пользователь не согласен с условиями настоящей Политики конфиденциальности, он обязан прекратить передачу персональных и иных данных посредством Сайта.
+            Безусловным акцептом настоящей Политики конфиденциальности является передача персональных и иных данных Пользователем посредством форм, размещенных на Сайте, путем нажатия кнопки «Отправить».
+            
+            <h3>1. ТЕРМИНЫ</h3>
+            
+            
+            1.1. Сайт – официальный сайт ИП "Project Infinity", расположенный в сети Интернет по адресу https://project-infinity.kz. Все исключительные права на Сайт и его отдельные элементы (включая программное обеспечение, дизайн) принадлежат Оператору в полном объеме.
+            1.2. Оператор – владелец Сайта, осуществляющий сбор, обработку и хранение персональных и иных данных Пользователя.
+            1.3. Пользователь – физическое лицо, использующее Сайт.
+            1.4. Законодательство – действующее законодательство Республики Казахстан.
+            1.5. Персональные данные – персональные данные Пользователя, которые Пользователь предоставляет самостоятельно в процессе использования функционала Сайта.
+            1.6. Данные – иные данные о Пользователе, не входящие в понятие Персональных данных.
+            
+            <h3>2. СБОР И ОБРАБОТКА ПЕРСОНАЛЬНЫХ И ИНЫХ ДАННЫХ</h3>
+            
+            
+            2.1. Оператор собирает и хранит только те Персональные данные, которые необходимы для взаимодействия с Пользователем.
+            2.2. Персональные данные могут использоваться в следующих целях:
+            2.2.1. идентификация Пользователя;
+            2.2.2. взаимодействие с Пользователем;
+            2.2.3. направление Пользователю рекламных материалов, информации и запросов;
+            2.2.4. проведение статистических и иных исследований.
+            2.3. Оператор в том числе обрабатывает следующие данные:
+            2.3.1. фамилия, имя и отчество (при его наличии);
+            2.3.2. адрес электронной почты;
+            2.3.3. номер телефона (в т. ч. мобильного).
+            2.4. Пользователю запрещается указывать на Сайте персональные данные третьих лиц.
+            
+            <h3>3. ПОРЯДОК ОБРАБОТКИ ПЕРСОНАЛЬНЫХ И ИНЫХ ДАННЫХ</h3>
+            
+            
+            
+            3.1. Обработка и хранение Персональных данных осуществляется Оператором в соответствии с Законом Республики Казахстан «О персональных данных и их защите».
+            3.2. В отношении Персональных данных и Данных сохраняется их конфиденциальность, кроме случаев, когда указанные данные являются общедоступными.
+            3.3. Оператор осуществляет автоматизированную обработку Персональных данных и Данных.
+            3.4. Оператор имеет право сохранять архивную копию Персональных данных.
+            3.5. Оператор имеет право передавать Персональные данные и Данные без согласия Пользователя следующим лицам:
+            3.6.1. государственным органам, в том числе органам дознания и следствия по их мотивированному запросу;
+            3.6.2. в иных случаях, прямо предусмотренных Законодательством.
+            3.6. Оператор имеет право передавать Персональные данные и Данные третьим лицам, не указанным в пункте 3.6 настоящей Политики конфиденциальности, в следующих случаях:
+            3.7.1. Пользователь выразил свое согласие на такие действия;
+            3.7.2. передача необходима в рамках использования Пользователем Сайта.
+            
+            
+            <h3>4. ЗАЩИТА ПЕРСОНАЛЬНЫХ И ИНЫХ ДАННЫХ</h3>
+            
+            
+            4.1. Оператор осуществляет надлежащую защиту Персональных данных и Данных в соответствии с Законодательством и принимает необходимые и достаточные организационные и технические меры для их защиты.
+            4.2. Применяемые меры защиты в том числе позволяют защитить Персональные данные и Данные от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий с ними третьих лиц.
+            
+            
+            <h3>5. ИНЫЕ ПОЛОЖЕНИЯ</h3>
+            
+            
+            5.1. К настоящей Политике конфиденциальности и отношениям между Оператором и Пользователем, возникающим в связи с применением настоящей Политики конфиденциальности, применяется право Республики Казахстан.
+            5.2. Все возможные споры, вытекающие из настоящей Политики конфиденциальности, подлежат разрешению в соответствии с Законодательством по месту регистрации Оператора.
+            5.3. Перед обращением в суд Пользователь должен соблюсти обязательный досудебный порядок и направить Оператору соответствующую претензию в письменном виде. Срок ответа на претензию составляет 20 (двадцать) рабочих дней.
+            5.4. Признание недействительными или не имеющими юридической силы одного или нескольких положений настоящей Политики конфиденциальности не влечет за собой недействительности остальных ее положений.
+            5.5. Оператор имеет право в любой момент изменять настоящую Политику конфиденциальности (полностью или в части) в одностороннем порядке без предварительного согласования с Пользователем. Все изменения вступают в силу с момента размещения на Сайте Политики конфиденциальности в новой редакции с учетом внесенных изменений.
+            5.6. Пользователь обязуется самостоятельно следить за изменениями настоящей Политики конфиденциальности путем ознакомления с актуальной редакцией.
+            5.7. Все предложения или вопросы по настоящей Политике конфиденциальности следует сообщать по электронной почте: eclair.desertire@gmail.com, по телефону: +7 707 907 89 49 или посредством специальной формы для связи на Сайте.
+        </div>
+      </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>Project Infinity</h3>
+            <p>
+              <strong>Телефон:</strong> +7-(707)-907-89-49<br>
+              <strong>Email: </strong> eclair.desertire@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Полезные ссылки</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}">Главная</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">О нас</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'all_portfolios' %}">Наши работы</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'privacy_policy' %}">Политика конфиденциальности</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Услуги</h4>
+            <ul>
+              {% for i in services %}
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'service_get' pk=i.pk %}">{{i.title}}</a></li>
+              {% endfor %}
+              
+            </ul>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="copyright-wrap d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Techie</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <!-- <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

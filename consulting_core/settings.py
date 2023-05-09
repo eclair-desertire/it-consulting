@@ -37,6 +37,8 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+SITE_ID = 1
+
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+	'django.contrib.sitemaps',
     
     'tinymce',
     'rest_framework',
@@ -109,6 +113,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 TG_BOT_TOKEN=env('TG_BOT_TOKEN')
+BOT_REQUEST_TOKEN=env('BOT_REQUEST_TOKEN')
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
