@@ -43,7 +43,7 @@ class PortfolioView(GenericViewSet,mixins.ListModelMixin):
         
 class ContactsView(GenericViewSet,mixins.ListModelMixin):
     serializer_class=ContactsSerializer
-    queryset=Contacts.objects.last()
+    queryset=Contacts.objects.all()
 
     def list(self, request, *args, **kwargs):
         try:

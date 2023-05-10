@@ -91,7 +91,6 @@ services:
       - celery-index
       - redis
       - db
-
   core:
     image: consulting:1.0
     restart: always
@@ -108,7 +107,6 @@ services:
       - db:db
     depends_on:
       - db
-
   bot:
     image: tg_bot:1.0
     build:
