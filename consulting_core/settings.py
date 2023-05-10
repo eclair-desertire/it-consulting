@@ -108,8 +108,8 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     'http://*127.0.0.1',
     'https://*127.0.0.1',
-    # 'http://*project-infinity.kz',
-    # 'https://*project-infinity.kz',
+    'http://*project-infinity.kz',
+    'https://*project-infinity.kz',
 ]
 
 TG_BOT_TOKEN=env('TG_BOT_TOKEN')
