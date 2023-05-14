@@ -146,70 +146,7 @@
   
         </div>
       </section>
-      <section id="contact" class="contact section-bg">
-        <div class="container" data-aos="fade-up">
-  
-          <div class="section-title">
-            <h2>Контакты</h2>
-            <p>Свяжитесь с нами по интересующим вас моментам, и мы постараемся сделать все чтобы реализовать вашу задачу!</p>
-          </div>
-  
-          <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="info-box  mb-4">
-                <i class="bx bx-envelope"></i>
-                <h3>Наша почта</h3>
-                <p>eclair.desertire@gmail.com</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-6 col-md-6">
-              <div class="info-box  mb-4">
-                <i class="bx bx-phone-call"></i>
-                <h3>Наш Телефон</h3>
-                <p> +7-(707)-907-89-49</p>
-              </div>
-            </div>
-  
-          </div>
-  
-          <div class="row">
-  
-  
-            <div class="col-lg-12">
-              <form role="form" class="php-email-form" id="my-form">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя" required>
-                  </div>
-                  <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Ваша почта">
-                  </div>
-                  
-                </div>
-                <div class="form-group mt-3">
-                  <input type="text" id="phone" name="phone" class="form-control" placeholder="+7 000-000-00-00">
-                </div>
-                <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Что вас заинтересовало?" required>
-                </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Расскажите подробнее что вы хотели бы реализовать у себя? И как вы это видите"></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Загрузка</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Ваша заявка была отправлена! Скоро с вами свяжутся наши специалисты!</div>
-                </div>
-                <p style="text-align: center;">Нажимая кнопку Отправить вы соглашаетесь с нашей <a href="{% url 'privacy_policy' %}">Политикой конфиденциальности</a></p>
-                <div class="text-center"><button type="submit" id="submit-btn">Отправить</button></div>
-              </form>
-            </div>
-  
-          </div>
-  
-        </div>
-      </section>
+      
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -294,41 +231,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-  <script>
-    $(document).ready(function() {
-      $('#my-form').submit(function(e) {
-        e.preventDefault();
-        var formData = {
-          'name': $('input[name=name]').val(),
-          'email': $('input[name=email]').val(),
-          'phone': $('input[name=phone]').val(),
-          'title': $('input[name=subject]').val(),
-          'about': $('textarea[name=message]').val()
-        };
 
-        $.ajax({
-          url: 'https://project-infinity.kz/api/request_send/',
-          type: 'POST',
-          data: formData,
-          dataType: 'json',
-          encode: true,
-          success: function(response) {
-            console.log(response);
-            $('.sent-message').text('Ваша заявка была отправлена! Скоро с вами свяжутся наши специалисты!');
-            $('.sent-message').show();
-          },
-          error: function(xhr, status, error) {
-              console.log(xhr.responseText);
-              console.log(status);
-              console.log(error);
-              $('.error-message').text('Ошибка отправки заявки. Пожалуйста, попробуйте еще раз.');
-              $('.error-message').show();
-          }
-        });
-      });
-    });
-  </script>
 
 </body>
 
