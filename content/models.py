@@ -6,6 +6,7 @@ class Service(models.Model):
     title=models.CharField(verbose_name="Наименование услуги",max_length=255,default="")
     image=models.ImageField(verbose_name="Изображение услуги")
     description=models.TextField(verbose_name="Описание")
+    long_description=models.TextField(verbose_name='Подробное описание',default='')
     publish = models.DateTimeField(default=timezone.now)
 
     class Meta:
