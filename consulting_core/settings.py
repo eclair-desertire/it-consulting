@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'content.apps.ContentConfig',
     'bot.apps.BotConfig',
 ]
-
+# fdkslfkldskfl;s
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
