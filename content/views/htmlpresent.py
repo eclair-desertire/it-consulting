@@ -33,8 +33,8 @@ def portfolio_get(request,pk):
     services=Service.objects.all()
     return render(request,'portfolio_details.html',{'services':services,'portfolio':portfolio})
 
-
-
+def shoq_policy(request):
+    return render(request, 'shoq_policy.html',{})
 
 def privacy_policy(request):
     services=Service.objects.all()
