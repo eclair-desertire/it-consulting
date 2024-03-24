@@ -2,7 +2,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.routers import DefaultRouter
-from content.views.htmlpresent import present,service_get,privacy_policy ,all_services,all_portfolios, portfolio_get, shoq_policy
+from content.views.htmlpresent import present,service_get,privacy_policy ,all_services,all_portfolios, portfolio_get, shoq_policy, jump_leap_ahead_policy
 from content.views.apis import ServiceView, PortfolioView, ContactsView, RequestView
 
 router=DefaultRouter()
@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/',include(router.urls)),
     path('',present,name='index'),
     path('privacy_policy',privacy_policy,name='privacy_policy'),
+    path('jump_leap_ahead_policy/',jump_leap_ahead_policy, name='jump_leap_ahead_policy'),
     path('shoq_policy/',shoq_policy,name='shoq_policy'),
     path('services/',all_services,name='all_services'),
     path('services/<int:pk>/',service_get,name='service_get'),

@@ -39,3 +39,6 @@ def shoq_policy(request):
 def privacy_policy(request):
     services=Service.objects.all()
     return render(request,'privacy_policy.html',{'services':services})
+
+def jump_leap_ahead_policy(request):
+    return render(request, 'jump_leap_ahead_policy.html',{})
